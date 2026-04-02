@@ -1,9 +1,9 @@
 ---
 title: "NCE 자격증 스토리텔링 교재 — 클라우드빵집 CTO의 모험"
-date: 2026-04-01 09:00:00 +0900
+date: 2026-04-02 13:00:00 +0900
 categories: [NCP, NCE]
 tags: [ncp, nce, 자격증, 학습가이드, 스토리텔링]
-description: "NCP NCE 자격증 대비 학습 자료 - 전체 챕터 구성 및 학습법 안내 프롤로그"
+description: "NCP NCE 자격증 대비 학습 자료 - 전체 챕터 구성 및 학습법 안내 프롤로그 (AI·DevOps·아키텍처 포함 전 26챕터)"
 ---
 
 ## "클라우드빵집 CTO의 모험"
@@ -24,33 +24,67 @@ description: "NCP NCE 자격증 대비 학습 자료 - 전체 챕터 구성 및 
 
 ## 📚 전체 챕터 설계
 
-| 파일명 | 챕터 | 주요 내용 |
-|--------|------|-----------|
-| `00_프롤로그` | 프롤로그 | 교재 소개, 학습법, 전체 구조 |
-| `01_하이퍼바이저` | Chapter 1 | G1/G2(XEN) vs G3(KVM), CPU/Memory 규칙, OS 스토리지 차이 |
-| `02_서버타입` | Chapter 2 | Micro/Standard/High Memory/High CPU/CPU-Intensive |
-| `03_특수서버` | Chapter 3 | Bare Metal Server, GPU Server |
-| `04_서버운영` | Chapter 4 | 서버 상태 관리, 이미지, 스냅샷, NIC, CLI/API |
-| `05_보안_ACG_NACL` | Chapter 5 | ACG vs NACL, Stateful/Stateless |
-| `06_스토리지3대장` | Chapter 6 | Block / File / Object 스토리지 비교 |
-| `07_ObjectStorage` | Chapter 7 | S3 호환, 제한 사항, 권한 관리 |
-| `08_Archive_NAS` | Chapter 8 | Archive Storage 비용 구조, NAS 마운트 |
-| `09_Backup전략` | Chapter 9 | 전체/차등/증분 백업 완전 정복 |
-| `10_Docker` | Chapter 10 | VM vs Container, Dockerfile, 라이프사이클 |
-| `11_Kubernetes` | Chapter 11 | K8s 컴포넌트, Pod/ReplicaSet/Deployment, Service |
-| `12_NKS` | Chapter 12 | NKS 관리형 K8s, NCP 서비스 통합 |
-| `13_네트워크기초` | Chapter 13 | OSI 7계층 vs TCP/IP 4계층, CIDR 계산 |
-| `14_VPC_TransitVPC` | Chapter 14 | VPC 구조, Peering(1:1) vs Transit VPC(1:N) |
-| `15_로드밸런서` | Chapter 15 | NLB/ProxyLB/ALB 비교, DSR, 알고리즘 3종 |
-| `16_로드밸런서_심화` | Chapter 16 | Sticky Session, Idle Timeout, X-Forwarded 헤더 |
-| `17_DNS_CDN` | Chapter 17 | DNS 레코드 9종, TTL, Cache Hit/Miss, Global Edge |
-| `18_미디어서비스` | Chapter 18 | Live Station, VOD Station, Image Optimizer |
-| `19_데이터베이스_MySQL_MSSQL` | Chapter 19 | MySQL(6TB, 10Replica), MSSQL(Log Shipping, BI/Batch) |
-| `20_데이터베이스_비교` | Chapter 20 | PostgreSQL/Redis/MongoDB + DB 종합 비교표 |
-| `21_BigData_CloudSearch_Hadoop` | Chapter 21 | Cloud Search, HDFS, MapReduce, YARN, Hadoop Eco |
-| `22_BigData_Kafka_DataStreaming` | Chapter 22 | Kafka vs RabbitMQ, CDSS(최소 4노드), Data Flow |
-| `23_보안_웹취약점_보안상품` | Chapter 23 | SQL Injection/XSS/SSRF/XXE, KMS, Private CA, WAF |
-| `99_총정리` | 최종 정리 | 핵심 수치 총집합, 시험 직전 체크리스트 |
+### Part 1 — 컴퓨팅 & 스토리지
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 1: 하이퍼바이저](../nce-01-hypervisor/) | G1/G2(XEN) vs G3(KVM), CPU/Memory 규칙, OS 스토리지 차이 |
+| [Chapter 2: 서버 타입](../nce-02-server-types/) | Micro/Standard/High Memory/High CPU/CPU-Intensive |
+| [Chapter 3: 특수 서버](../nce-03-special-servers/) | Bare Metal Server(RAID 1+0/5), GPU(Pass Through) |
+| [Chapter 4: 서버 운영](../nce-04-server-operations/) | 서버 상태 관리, 이미지, 스냅샷, NIC, CLI/API |
+| [Chapter 5: 보안 ACG·NACL](../nce-05-security-acg-nacl/) | ACG(Stateful/Allow만) vs NACL(Stateless/Deny가능) |
+| [Chapter 6: 스토리지 3대장](../nce-06-storage-three/) | Block / File / Object 스토리지 비교 |
+| [Chapter 7: Object Storage](../nce-07-object-storage/) | S3 호환, 버킷 1000개, API 10TB 업로드 |
+| [Chapter 8: Archive & NAS](../nce-08-archive-nas/) | Archive(swift CLI, 저장 싸고 API 비쌈), NAS(500GB~20TB) |
+| [Chapter 9: Backup 전략](../nce-09-backup-strategy/) | 전체/차등/증분 백업, 보관 7일~364일 |
+
+### Part 2 — 컨테이너
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 10: Docker](../nce-10-docker/) | VM vs Container, Dockerfile, 레이어 구조 |
+| [Chapter 11: Kubernetes](../nce-11-kubernetes/) | K8s 컴포넌트, Pod/ReplicaSet/Deployment, Service |
+| [Chapter 12: NKS](../nce-12-nks/) | 관리형 K8s, Master=NCP 관리, Container Registry |
+
+### Part 3 — 네트워크
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 13: 네트워크 기초](../nce-13-network-basics/) | OSI 7계층 vs TCP/IP 4계층, CIDR 계산 |
+| [Chapter 14: VPC & Transit VPC](../nce-14-vpc-transit-vpc/) | VPC 구조, Peering(1:1) vs Transit VPC(1:N) |
+| [Chapter 15: 로드밸런서](../nce-15-load-balancer/) | NLB/ProxyLB/ALB 비교, DSR, 알고리즘 3종 |
+| [Chapter 16: 로드밸런서 심화](../nce-16-load-balancer-advanced/) | Sticky Session, Idle Timeout, X-Forwarded 헤더 |
+| [Chapter 17: DNS & CDN](../nce-17-dns-cdn/) | DNS 레코드 9종, TTL, Cache Hit/Miss, Global Edge |
+| [Chapter 18: 미디어 서비스](../nce-18-media-services/) | Live Station(RTMP→HLS), VOD Station, Image Optimizer |
+
+### Part 4 — 데이터베이스 & 빅데이터
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 19: DB MySQL·MSSQL](../nce-19-cloud-db-mysql-mssql/) | MySQL(6TB, 10Replica, 1분 Failover), MSSQL(Log Shipping) |
+| [Chapter 20: DB 비교](../nce-20-database-comparison/) | PostgreSQL/Redis/MongoDB 핵심 수치 총정리 |
+| [Chapter 21: BigData 기초](../nce-21-cloud-search-hadoop/) | Cloud Search(7개언어), HDFS, MapReduce, YARN, Hadoop |
+| [Chapter 22: Kafka & 스트리밍](../nce-22-kafka-data-streaming/) | Kafka vs RabbitMQ, CDSS(최소 4노드), Data Flow |
+
+### Part 5 — 보안
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 23: 보안 상품](../nce-23-security-products/) | SQL Injection/XSS/SSRF/XXE, KMS 봉투암호화, Private CA, WAF |
+
+### Part 6 — AI & DevOps & 아키텍처
+
+| 챕터 | 주요 내용 |
+|------|-----------|
+| [Chapter 24: CLOVA AI 서비스](../nce-24-ai-services/) | Chatbot(6개언어), OCR(Basic/Premium), Speech(STT), Voice(TTS), Papago, Search Trend |
+| [Chapter 25: DevOps Source 4총사](../nce-25-devops-source-tools/) | SourceCommit→SourceBuild→SourceDeploy→SourcePipeline CI/CD |
+| [Chapter 26: 클라우드 아키텍처](../nce-26-cloud-architecture/) | 3-tier, 모놀리식 vs MSA, Cloud Functions(서버리스), IoT Core |
+
+### 마무리
+
+| | 내용 |
+|--|------|
+| [최종 체크리스트](../nce-99-final-checklist/) | 전 챕터 핵심 수치 총집합 + 함정 문제 TOP 28 |
 
 ---
 
@@ -76,38 +110,93 @@ description: "NCP NCE 자격증 대비 학습 자료 - 전체 챕터 구성 및 
 
 ---
 
-## 🗺️ 클라우드빵집 최종 아키텍처 (스포일러)
+## 🗺️ 클라우드빵집 최종 아키텍처
 
 ```
-                    ┌─────────────────────────────────┐
-                    │         인터넷 (Internet)         │
-                    └──────────────┬──────────────────┘
-                                   │
-                    ┌──────────────▼──────────────────┐
-                    │    NACL (서브넷 방화벽)            │
-                    └──────────────┬──────────────────┘
-                                   │
-         ┌─────────────────────────┼─────────────────────────┐
-         │                         │                         │
-┌────────▼────────┐     ┌──────────▼──────────┐   ┌─────────▼────────┐
-│  웹 서버 (G3)    │     │   DB 서버 (G3)       │   │  GPU 서버 (G3)   │
-│  Standard 1:4   │     │  High Memory 1:8     │   │  딥러닝 모델     │
-│  ACG 적용       │     │  ACG 적용            │   │  Pass Through    │
-└─────────────────┘     └─────────────────────┘   └──────────────────┘
-         │                         │
-         │              ┌──────────▼──────────┐
-         │              │   NAS (공유 스토리지)  │
-         │              │  NFS 마운트 / 500GB+ │
-         │              └─────────────────────┘
-         │
-┌────────▼────────────────────────────────────────────────────┐
-│                    스토리지 계층                              │
-│  Object Storage (이미지/영상) ← AWS CLI                      │
-│  Archive Storage (장기 보관)  ← OpenStack swift CLI          │
-│  Backup (증분+전체)           ← 7일~364일 보관               │
-└─────────────────────────────────────────────────────────────┘
+                    ┌──────────────────────────────────┐
+                    │          인터넷 (Internet)          │
+                    └───────────────┬──────────────────┘
+                                    │
+                    ┌───────────────▼──────────────────┐
+                    │      ALB (Application LB, L7)     │
+                    └───────────────┬──────────────────┘
+                                    │
+                    ┌───────────────▼──────────────────┐
+                    │        NACL (서브넷 방화벽)         │
+                    └───┬───────────────────────────┬──┘
+                        │                           │
+          ┌─────────────▼──────────┐   ┌────────────▼───────────┐
+          │   웹 서버 (G3/KVM)      │   │   GPU 서버 (G3/KVM)    │
+          │   Standard 1:4         │   │   딥러닝 / AI 모델      │
+          │   Auto Scaling 적용     │   │   Pass Through 방식    │
+          │   ACG 적용              │   │   ACG 적용             │
+          └─────────────┬──────────┘   └────────────────────────┘
+                        │
+          ┌─────────────▼──────────┐
+          │   DB 서버 (G3/KVM)      │
+          │   High Memory 1:8      │
+          │   Cloud DB MySQL       │
+          │   (6TB, Replica 10대)  │
+          └─────────────┬──────────┘
+                        │
+          ┌─────────────▼──────────────────────────────────────┐
+          │                    스토리지 계층                      │
+          │  Object Storage (이미지/영상)   ← AWS CLI            │
+          │  Archive Storage (장기 보관)    ← OpenStack swift    │
+          │  NAS (공유 파일)  NFS/CIFS      ← 500GB ~ 20TB      │
+          │  Backup (증분+전체)             ← 7일 ~ 364일        │
+          └────────────────────────────────────────────────────┘
+
+                    ┌──────────────────────────────────┐
+                    │         AI 서비스 레이어            │
+                    │  CLOVA Chatbot  — 고객 문의 자동화  │
+                    │  CLOVA OCR      — 영수증 자동 인식  │
+                    │  CLOVA Speech   — 음성 주문 처리    │
+                    │  CLOVA Voice    — 안내 방송 TTS     │
+                    │  Papago         — 다국어 메뉴 번역  │
+                    └──────────────────────────────────┘
+
+                    ┌──────────────────────────────────┐
+                    │        DevOps 파이프라인           │
+                    │  SourceCommit  → 코드 저장 (Git)   │
+                    │       ↓                           │
+                    │  SourceBuild   → 자동 빌드         │
+                    │       ↓                           │
+                    │  SourceDeploy  → 자동 배포         │
+                    │  (SourcePipeline으로 전체 자동화)  │
+                    └──────────────────────────────────┘
 ```
 
 ---
 
-*다음 챕터: `01_하이퍼바이저.md` → 서버를 처음 만드는 순간*
+## 📈 민준의 성장 로드맵
+
+```
+Day 1  서버 첫 생성 (하이퍼바이저, 서버 타입 선택)
+  ↓
+Day 7  보안 설계 (ACG + NACL + VPC)
+  ↓
+Day 14 스토리지 구성 (Object Storage + NAS + Backup)
+  ↓
+Day 21 컨테이너 전환 (Docker → K8s → NKS)
+  ↓
+Day 30 네트워크 완성 (ALB + DNS + CDN)
+  ↓
+Day 45 DB 고가용성 (MySQL Failover + Redis Cache)
+  ↓
+Day 60 빅데이터 구축 (Hadoop + Kafka + Cloud Search)
+  ↓
+Day 75 보안 강화 (KMS + WAF + Private CA)
+  ↓
+Day 90 AI 도입 (CLOVA Chatbot + OCR + Speech)
+  ↓
+Day 100 DevOps 완성 (SourcePipeline CI/CD 자동화)
+  ↓
+Day 110 아키텍처 고도화 (MSA + Cloud Functions + IoT)
+  ↓
+시험 합격! 🎉
+```
+
+---
+
+*다음 챕터: Chapter 1 — 서버를 처음 만드는 순간, 하이퍼바이저를 선택하라*
