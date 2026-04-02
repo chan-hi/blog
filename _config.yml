@@ -14,12 +14,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: cloudops # the main title
+title: AI DevSecFinOps # the main title
 
-tagline: 클라우드 엔지니어의 기술 블로그 # it will display as the subtitle
+tagline: AI로 개발·보안·비용·운영을 자동화하는 엔지니어의 성장 로그 # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  AWS, NCP, NHN Cloud, Kubernetes, IaC, DevOps, FinOps 실무 기록
+  AI, Cloud, DevOps, Security, FinOps, NCP, Kubernetes, IaC 자동화 실무 기록
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -34,7 +34,7 @@ twitter:
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
-  name: cloudops
+  name: AI DevSecFinOps
   email: # change to your email address
   fediverse_handle: # fill in your fediverse handle. E.g. "@username@domain.com"
   links:
