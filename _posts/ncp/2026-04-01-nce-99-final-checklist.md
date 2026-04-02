@@ -477,6 +477,24 @@ Root Key (NCP) → Master Key (고객) → Data Key → 데이터
 
 20. "Webshell Detector는 서버리스(에이전트 불필요)다?" → **X (Agent 설치 필요)**
 
+**AI & DevOps:**
+
+21. "CLOVA Chatbot은 한국어만 지원한다?" → **X (6개 언어 지원)**
+
+22. "CLOVA OCR Basic 모델은 필기체를 인식한다?" → **X (활자체만, Premium이 필기체)**
+
+23. "CLOVA Speech API 부스팅은 1음절 단어도 가능하다?" → **X (1음절 불가, 오인식 위험)**
+
+24. "CLOVA Voice Premium 플랜은 실시간 API 호출이 가능하다?" → **X (두 플랜 모두 실시간 API 불가)**
+
+25. "SourceBuild는 CentOS 환경에서 빌드된다?" → **X (Ubuntu 16.04만 지원)**
+
+26. "SourcePipeline은 SourceCommit 없이도 사용할 수 있다?" → **X (3개 서비스 모두 필요)**
+
+27. "Cloud Functions의 Action과 Trigger는 이름이 같아도 된다?" → **X (Entity 이름 중복 불가)**
+
+28. "Cloud IoT Core는 HTTP 프로토콜을 사용한다?" → **X (MQTT 프로토콜)**
+
 ---
 
 ## 📊 최종 키워드 매핑
@@ -516,6 +534,24 @@ IDS → 탐지만 / IPS → 탐지+차단 / WAF → 웹공격L7
 KMS → 봉투암호화(Root→Master→Data Key)
 Private CA → 10개CA, 30000개인증서
 Webshell → Agent설치, 행위기반탐지
+Chatbot → 6개언어, NLU+앙상블, 네거티브최대20개
+챗봇우선순위 → 객관식버튼 > 컨텍스트 > 일반대화
+OCR Basic → 활자체만, Template/General지원
+OCR Premium → 활자체+필기체, 멀티박스/체크박스/필드유형
+OCR API → /general(TEXT), /infer(Template)
+CLOVA Speech → STT, 부스팅최대500건, 1음절불가, 한글영어숫자만
+CLOVA Voice → TTS, 100가지음성, 실시간API불가
+Papago → 번역+언어감지12개언어+높임말번역
+SearchTrend → 그룹5개, 그룹당20개, RESTful API
+SourceCommit → 프라이빗Git, ADMIN/WRITE/READ, FileSafer연동
+SourceBuild → Ubuntu16.04만, GitHub소스가능, 빌드런타임6종
+SourceDeploy → CentOS/Ubuntu, 타겟4종(Server/AutoScaling/NKS/ObjStorage)
+SourcePipeline → Source→Build→Deploy, 3서비스모두필요, 병렬실행
+CloudFunctions → 서버리스, Action/Trigger=Entity(중복불가), 7개언어
+CloudIoTCore → MQTT프로토콜, X.509인증서+TLS
+아키텍처 → LiftShift→CloudOptimized→CloudNative
+3tier → Presentation/BusinessLogic/Data
+ScaleOut → N-tier사전고려, AutoScaling, MultiAZ
 ```
 
 ---
