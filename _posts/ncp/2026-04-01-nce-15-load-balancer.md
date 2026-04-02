@@ -97,6 +97,18 @@ description: "NCP NCE 자격증 대비 학습 자료 - NLB, Proxy Load Balancer,
 - TCP 세션 관리가 필요한 애플리케이션에 적합
 - SSL 오프로드 지원 (Certificate Manager 연동)
 - Classic LB와 유사한 방식
+- **TCP 세션 관리**: LB가 클라이언트-서버 간 TCP 연결을 직접 중계 (두 연결로 분리)
+
+```
+[NLB - pass-through]
+클라이언트 ──────────────── 서버  (TCP 연결 1개)
+
+[NPLB - Proxy]
+클라이언트 ── TCP연결1 ── NPLB ── TCP연결2 ── 서버
+```
+
+- Proxy 방식이므로 **서버 입장의 Source IP = LB IP** (클라이언트 IP가 아님)
+- 원본 클라이언트 IP를 확인하려면 **Proxy Protocol** 활성화 필요
 
 #### Application Load Balancer (ALB) — L7
 - HTTP/HTTPS 헤더 분석 가능 → URL Path 기반, Host Header 기반 분기
@@ -121,9 +133,57 @@ description: "NCP NCE 자격증 대비 학습 자료 - NLB, Proxy Load Balancer,
 > DSR은 **Network LB에서만** 지원!  
 > 대용량 응답 트래픽(동영상 스트리밍 등)에 유리
 
+### DSR이 동작하는 두 가지 조건
+
+DSR은 "알아서 생기는 현상"이 아니라 **의도적으로 설계된 아키텍처**다.
+
+| 조건 | 설명 |
+|------|------|
+| **① LB가 패킷 pass-through (SNAT 없음)** | 패킷을 수정하지 않고 그대로 전달 |
+| **② 서버가 VIP를 자신의 IP로 인식** | 서버의 loopback 인터페이스에 LB의 VIP 등록 |
+
+- ①만으로는 서버가 응답 패킷의 목적지를 어디로 보낼지 알 수 없다
+- ②가 있어야 서버가 VIP로 들어온 패킷을 "내 요청"으로 처리하고, 직접 응답 생성 가능
+- 응답을 클라이언트에게 직접 보내는 것은 ①+②의 **자연스러운 결과**
+
+### DSR과 Source IP 보존의 관계
+
+> DSR이라서 Source IP가 보존되는 게 아니라, **SNAT를 안 하기 때문에** 클라이언트 IP가 그대로 서버에 전달된다.
+
+- **Source IP 보존 여부** = SNAT 여부에 달린 문제
+- DSR은 응답 트래픽 경로의 특성 (별개 개념)
+- NLB는 "SNAT 없음"과 "DSR"이 함께 나타나지만, 인과관계는 다름
+
 ---
 
-## 🔑 핵심 개념 5: 포트 설정 규칙
+---
+
+## 🔑 핵심 개념 5: 클라이언트 IP 확인 방법
+
+서버 입장에서 실제 클라이언트 IP를 확인하는 방법은 LB 종류마다 다르다.
+
+| LB 종류 | 서버가 보는 Source IP | 클라이언트 IP 확인 방법 |
+|--------|---------------------|----------------------|
+| **NLB** | 클라이언트 IP (그대로) | 별도 설정 불필요 |
+| **NPLB** | LB IP | **Proxy Protocol** 활성화 |
+| **ALB** | LB IP | **X-Forwarded-For** 헤더 |
+
+### Proxy Protocol
+
+TCP 레벨에서 원본 클라이언트 IP를 전달하는 방식. HTTP 헤더가 없는 TCP/TLS 환경에서 사용.
+
+```
+# TCP 연결 맨 앞에 클라이언트 정보를 텍스트로 붙여 전달
+PROXY TCP4 125.209.237.10 125.209.192.12 43321 80\r\n
+           ↑ 클라이언트IP  ↑ LB IP       ↑클라포트 ↑서버포트
+```
+
+> ⚠️ **양쪽 모두 설정 필요**: LB에서 Proxy Protocol 활성화 + 애플리케이션(nginx 등)에서 수신 설정 활성화  
+> 한쪽만 켜면 서버가 `PROXY TCP4 ...` 텍스트를 HTTP 요청으로 오인해 오류 발생
+
+---
+
+## 🔑 핵심 개념 7: 포트 설정 규칙
 
 > ⚠️ **시험 포인트**  
 > 여러 규칙을 동시에 설정할 때:
@@ -139,7 +199,7 @@ description: "NCP NCE 자격증 대비 학습 자료 - NLB, Proxy Load Balancer,
 
 ---
 
-## 🔑 핵심 개념 6: 모니터링
+## 🔑 핵심 개념 8: 모니터링
 
 | LB 종류 | 모니터링 항목 수 |
 |--------|--------------|
@@ -153,10 +213,13 @@ description: "NCP NCE 자격증 대비 학습 자료 - NLB, Proxy Load Balancer,
 
 - [ ] Listener: 프로토콜/포트 체크 → Target Group으로 라우팅
 - [ ] Round Robin: 순차 배분 / Least Connection: 최소 연결 / Source IP Hash: IP 해시
-- [ ] NLB: TCP/UDP, L4, **DSR 지원**, 로깅 ❌
-- [ ] Network Proxy LB: TCP/TLS, SSL 오프로드 ✅, DSR ❌
-- [ ] ALB: HTTP/HTTPS, L7, URL 경로 기반, 같은 서버 여러 포트 ✅
-- [ ] DSR: **NLB만** 지원, 서버 직접 응답
+- [ ] NLB: TCP/UDP, L4, **DSR 지원**, 로깅 ❌, Source IP = 클라이언트 IP (그대로)
+- [ ] Network Proxy LB: TCP/TLS, SSL 오프로드 ✅, DSR ❌, Source IP = LB IP
+- [ ] ALB: HTTP/HTTPS, L7, URL 경로 기반, 같은 서버 여러 포트 ✅, Source IP = LB IP
+- [ ] DSR: **NLB만** 지원 / 조건: ① LB pass-through(SNAT 없음) + ② 서버가 VIP를 자신의 IP로 인식
+- [ ] Source IP 보존은 DSR 때문이 아니라 **SNAT 없음** 때문
+- [ ] 클라이언트 IP 확인: NLB=그대로, NPLB=Proxy Protocol, ALB=X-Forwarded-For
+- [ ] Proxy Protocol: LB + 앱 **양쪽 모두** 설정 필요
 - [ ] LB 포트: 규칙마다 **다르게** / 서버 포트: 같아도 OK
 - [ ] ALB CPS: 30,000 ~ 120,000
 - [ ] 모니터링 수집 주기: 1분, 5분, 2시간, 1일
@@ -166,7 +229,8 @@ description: "NCP NCE 자격증 대비 학습 자료 - NLB, Proxy Load Balancer,
 ## 🧠 암기 핵심 문장
 
 > "**NLB = TCP/UDP + DSR + L4 / ALB = HTTP + 경로기반 + L7**"  
-> "**DSR은 NLB만, SSL 오프로드는 Proxy+ALB**"
+> "**DSR은 NLB만, SSL 오프로드는 Proxy+ALB**"  
+> "**Source IP 보존 = SNAT 없음 / Proxy Protocol = TCP에서 클라이언트 IP 전달**"
 
 ---
 
