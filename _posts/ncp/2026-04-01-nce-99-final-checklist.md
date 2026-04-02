@@ -1,9 +1,9 @@
 ---
 title: "최종 총정리 — 시험 직전 체크리스트"
-date: 2026-04-01 09:00:00 +0900
+date: 2026-04-02 12:00:00 +0900
 categories: [NCP, NCE]
 tags: [ncp, nce, 자격증, final-review, checklist, exam-summary]
-description: "NCP NCE 자격증 대비 최종 요약 - 시험 직전 핵심 수치와 개념 체크리스트"
+description: "NCP NCE 자격증 대비 최종 요약 - 시험 직전 핵심 수치와 개념 체크리스트 (AI·DevOps·아키텍처 포함 전 챕터)"
 ---
 > 이 문서는 NCE 시험 직전, 모든 핵심 수치와 개념을 빠르게 복습하기 위한 최종 정리입니다.
 
@@ -433,7 +433,149 @@ Root Key (NCP) → Master Key (고객) → Data Key → 데이터
 
 ---
 
-## 🎯 자주 나오는 함정 문제 TOP 20
+## ⚡ Part 9: AI 서비스 핵심 수치
+
+### CLOVA Chatbot
+
+| 항목 | 내용 |
+|------|------|
+| 지원 언어 | **6개** (한/일/영/중/태/인도네시아) |
+| 네거티브 최대 | **20개** |
+| 대화 우선순위 | **객관식 버튼 > 컨텍스트 > 일반 대화** |
+
+### CLOVA OCR 모델 비교
+
+| 항목 | Basic | Premium |
+|------|-------|---------|
+| 인식 대상 | 활자체만 | 활자체 + **필기체** |
+| 멀티박스 | ❌ | **✅** |
+| 체크박스 | ❌ | **✅** |
+| 필드 유형 | ❌ | **✅** |
+
+- TEXT OCR 경로: **`/general`**
+- Template OCR 경로: **`/infer`**
+
+### CLOVA Speech (STT)
+
+- API 방식: **object-storage / url / upload** 3가지
+- 키워드 부스팅 최대: **500건**
+- 부스팅 불가: **1음절** 단어 (오인식 위험)
+- 부스팅 가능 문자: **한글, 영어, 숫자**만
+- 기본 언어: **ko-KR** / 기본 방식: **async**
+
+### CLOVA Voice (TTS)
+
+- 음성 옵션: **100가지** (성별·연령 포괄)
+- Standard/Premium 모두 **실시간 API 호출 불가**
+- Standard/Premium 모두 **재가공/재편집 불가**
+
+### Papago
+
+- 언어 감지 지원: **12개 언어**
+- 높임말 번역: 한국어 전용 추가 옵션
+
+### Search Trend
+
+- 키워드 그룹: 최대 **5개**
+- 그룹당 검색어: 최대 **20개**
+- 데이터 제공: **2016.01.01**부터
+
+---
+
+## ⚡ Part 10: DevOps Source 핵심
+
+### Source 4총사 역할
+
+```
+SourceCommit  → 프라이빗 Git 리포지토리
+SourceBuild   → 자동 빌드
+SourceDeploy  → 자동 배포
+SourcePipeline → 3개 통합 CI/CD 파이프라인
+```
+
+### SourceCommit 권한 3종
+
+| 권한 | 가능 작업 | 비고 |
+|------|---------|------|
+| **ADMIN** | CLONE/PULL/PUSH + 설정변경/삭제 | 생성자에게 **자동 부여** |
+| **WRITE** | CLONE/PULL/PUSH | - |
+| **READ** | CLONE/PULL만 | - |
+
+### SourceBuild 제약
+
+- 빌드 OS: **Ubuntu 16.04** 만 지원
+- 빌드 소스: SourceCommit + **GitHub** (외부도 가능)
+- 빌드 런타임: base / java / .NET / android-java / python / nodejs
+- 서브계정 전체 권한: `NCP_INFRA_MANAGER`
+- 서브계정 프로젝트 생성: `NCP_SOURCE_BUILD_MANGER`
+
+### SourceDeploy 지원 환경
+
+| 배포 타겟 | 지원 |
+|---------|------|
+| NCP Server | ✅ |
+| Auto Scaling | ✅ |
+| Kubernetes Service | ✅ |
+| Object Storage | ✅ |
+
+- 지원 OS: **CentOS, Ubuntu**
+- 서브계정 권한: `NCP_SOURCE_DEPLOY_MANGER`
+
+### SourcePipeline 구성
+
+```
+Source Phase (SourceCommit)
+     ↓
+Build Phase (SourceBuild)
+     ↓
+Deploy Phase (SourceDeploy)
+```
+
+- **3개 서비스 모두** 이용해야 사용 가능
+- **병렬 실행** 지원
+
+---
+
+## ⚡ Part 11: 클라우드 아키텍처 & 서버리스
+
+### 아키텍처 마이그레이션 3단계
+
+```
+Lift & Shift → Cloud-optimized → Cloud-native
+```
+
+### 3-tier 계층
+
+| 계층 | 역할 |
+|------|------|
+| Presentation | 사용자 인터페이스 (웹 서버) |
+| Business Logic | 핵심 비즈니스 처리 (앱 서버) |
+| Data | 데이터 저장 (DB 서버) |
+
+### 모놀리식 vs 마이크로서비스
+
+| 항목 | 모놀리식 | 마이크로서비스 |
+|------|---------|-------------|
+| 배포 | 전체 배포 | **독립 배포** |
+| 확장 | 전체 확장 | **서비스별 확장** |
+
+- Scale-out/in이 작동하려면 **N-tier Architecture** 사전 설계 필요
+
+### Cloud Functions (서버리스)
+
+- Action, Trigger 모두 **Entity**로 통칭
+- Entity 이름: **중복 불가**
+- 지원 언어: **Node.js 6/8, Python 3, Java 8, Swift 3, PHP 7, .Net, Go** (7종)
+- 코드 업로드: 콘솔 작성 or **ZIP(Java는 JAR)** 파일
+
+### Cloud IoT Core
+
+- 프로토콜: **MQTT** (경량 메시지 프로토콜)
+- 인증: **X.509 인증서** + **TLS** 암호화 통신
+
+---
+
+## 🎯 자주 나오는 함정 문제 TOP 28
 
 1. "서버 이미지 생성은 정지 상태에서만 가능하다?" → **X (운영 중에도 가능)**
 
