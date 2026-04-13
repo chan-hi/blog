@@ -2,7 +2,7 @@
 title: "NCP Global Edge 504 Timeout, 정말 CDN 기본 3초 제한일까?"
 date: 2026-04-03 17:42:00 +0900
 categories: [NCP, Troubleshooting]
-tags: [ncp, global-edge, cdn, alb, object-storage, timeout, 504, troubleshooting]
+tags: [ncp, global-edge, cdn, alb, object-storage, timeout, "504", troubleshooting]
 description: "Global Edge에서 관측된 504와 3000ms 패턴을 재현 테스트와 CDN/ALB 로그 대조로 검증한 기록"
 ---
 
