@@ -1,9 +1,9 @@
 ---
-title: "[멘토링] 전송 계층 (TCP/UDP) 실무 멘토링"
+title: "[네트워크] 전송 계층 TCP/UDP 실무"
 date: 2026-04-08 09:00:00 +0900
 categories: [CS, Study]
 tags: [CS, 네트워크, TCP, UDP, 멘토링]
-description: "[멘토링] 전송 계층 (TCP/UDP) 실무 멘토링 - 클라우드 엔지니어를 위한 CS 학습 노트"
+description: "[네트워크] 전송 계층 TCP/UDP 실무 - 클라우드 엔지니어를 위한 CS 학습 노트"
 ---
 
 ## **1\. 핵심 개념 정리**

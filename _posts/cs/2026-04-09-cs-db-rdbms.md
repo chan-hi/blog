@@ -1,9 +1,9 @@
 ---
-title: "[멘토링] RDBMS의 기본 - 인프라 엔지니어 관점"
+title: "[데이터베이스] RDBMS의 기본"
 date: 2026-04-09 11:00:00 +0900
 categories: [CS, Study]
 tags: [CS, 데이터베이스, RDBMS, 멘토링]
-description: "[멘토링] RDBMS의 기본 - 인프라 엔지니어 관점 - 클라우드 엔지니어를 위한 CS 학습 노트"
+description: "[데이터베이스] RDBMS의 기본 - 클라우드 엔지니어를 위한 CS 학습 노트"
 ---
 
 ## **1\. 핵심 개념 정리**

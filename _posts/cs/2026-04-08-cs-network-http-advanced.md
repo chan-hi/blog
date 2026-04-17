@@ -1,9 +1,9 @@
 ---
-title: "[멘토링] HTTP 심화와 프록시 실무 멘토링"
+title: "[네트워크] HTTP 심화와 프록시"
 date: 2026-04-08 11:00:00 +0900
 categories: [CS, Study]
 tags: [CS, 네트워크, HTTP, 프록시, 멘토링]
-description: "[멘토링] HTTP 심화와 프록시 실무 멘토링 - 클라우드 엔지니어를 위한 CS 학습 노트"
+description: "[네트워크] HTTP 심화와 프록시 - 클라우드 엔지니어를 위한 CS 학습 노트"
 ---
 
 ## **1\. 핵심 개념 정리**

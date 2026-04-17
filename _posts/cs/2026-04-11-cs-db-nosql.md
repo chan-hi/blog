@@ -1,9 +1,9 @@
 ---
-title: "[멘토링] NoSQL의 이해 - 인프라 엔지니어 관점"
+title: "[데이터베이스] NoSQL의 이해"
 date: 2026-04-11 09:00:00 +0900
 categories: [CS, Study]
 tags: [CS, 데이터베이스, NoSQL, 멘토링]
-description: "[멘토링] NoSQL의 이해 - 인프라 엔지니어 관점 - 클라우드 엔지니어를 위한 CS 학습 노트"
+description: "[데이터베이스] NoSQL의 이해 - 클라우드 엔지니어를 위한 CS 학습 노트"
 ---
 
 ## **1\. 핵심 개념 정리**
