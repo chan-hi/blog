@@ -2,7 +2,7 @@
 title: "미들웨어 트러블슈팅 실무 가이드 (Nginx / Apache / Tomcat)"
 date: 2026-04-20 03:00:00 +0900
 categories: [Tips, Troubleshooting]
-tags: [nginx, apache, tomcat, middleware, troubleshooting, 502, jvm, thread-dump]
+tags: [nginx, apache, tomcat, middleware, troubleshooting, "502", jvm, thread-dump]
 description: "웹서버(Nginx, Apache) 및 WAS(Tomcat) 장애 대응 실무 가이드 - 에러 로그 분석, HTTP 상태코드 대응, JVM 진단"
 ---
 
