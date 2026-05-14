@@ -6,7 +6,7 @@ tags: [ncp, archive-storage, rclone, powershell, openstack, keystone, windows, s
 description: "NCP Archive Storage 자동화 설치 스크립트(PowerShell)의 전체 구조와 각 코드 블록을 상세히 해설한 문서"
 ---
 
-> 이 포스트는 [NCP Archive Storage 접속 자동화 개발기](/posts/ncp-archive-automation/)의 후속으로, 실제 설치 스크립트 코드를 블록 단위로 상세히 해설한다.
+> 이 포스트는 [NCP Archive Storage 접속 자동화 개발기](/blog/posts/ncp-archive-automation/)의 후속으로, 실제 설치 스크립트 코드를 블록 단위로 상세히 해설한다.
 
 ## 전체 구조
 
