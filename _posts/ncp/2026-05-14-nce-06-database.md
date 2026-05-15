@@ -135,7 +135,3 @@ description: "Cloud DB for MySQL/MSSQL/MongoDB/PostgreSQL/Redis 스펙 비교, F
 - **max_connections**: 기본 3000
 - **wait_timeout**: 기본 28800초 (8시간)
 
-## 원문 반영 체크
-
-- 반영 페이지: 163~195p
-- 포함 내용: Cloud DB 개요, MySQL/MSSQL/MongoDB/PostgreSQL/Redis 스펙, Failover, 백업/복원, Config 관리, HA 아키텍처, 제품 비교

@@ -169,7 +169,3 @@ DaemonSet (모든 노드에 Pod 1개씩)
 - **NKS**: Master Hidden + HA 3대, Worker 최대 250대
 - **Scale-out**: 서버 대수 늘림 / **Launch Configuration**: 서버 템플릿
 
-## 원문 반영 체크
-
-- 반영 페이지: 74~102, 356~367p
-- 포함 내용: VM vs Container, Docker 기반 기술, Dockerfile, Container Registry, K8s 아키텍처, Pod/ReplicaSet/Deployment/DaemonSet, Service Type, Ingress, NKS, Auto Scaling 구성 요소

@@ -169,7 +169,3 @@ Data Source → 수집(Sqoop/Flume) → 저장(HDFS/HBase) → 분석(Spark/Hive
 - **Kafka**: LinkedIn 개발, pull 방식, 파일시스템 저장
 - **CloudDSS**: Manager 1대 + Broker 3대 이상 = **최소 4대**, 브로커 감소 불가, 추가 최대 10대, 추가 시 전체 재시작
 
-## 원문 반영 체크
-
-- 반영 페이지: 196~235p
-- 포함 내용: 검색 시스템 개요, Cloud Search 구성/언어/기능, Hadoop/HDFS/MapReduce/YARN, CloudHadoop 아키텍처/템플릿/프레임워크, Kafka/CloudDSS 구성, DataFlow/DataCatalog/DataForest/DataboxFrame

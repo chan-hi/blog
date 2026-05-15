@@ -182,7 +182,3 @@ IP 주소 기반 위치 정보 조회 서비스.
 - **Search Trend API**: 일 1,000건, 최대 5그룹, 그룹당 20개, ages 1~11
 - **API 인증**: x-ncp-apigw-timestamp + x-ncp-iam-access-key + x-ncp-apigw-signature-v2 (HmacSHA256)
 
-## 원문 반영 체크
-
-- 반영 페이지: 278~320p
-- 포함 내용: CLOVA Speech/Voice/OCR/Chatbot/Dubbing/Studio, AiTEMS, Papago, API Gateway 인증, Outbound Mailer, Geolocation, Search Trend API

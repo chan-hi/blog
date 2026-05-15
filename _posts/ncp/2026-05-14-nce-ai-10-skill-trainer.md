@@ -207,7 +207,3 @@ Function Calling은 언어 모델이 외부 함수나 API를 호출하여 동적
 - 콘텐츠 필터 설명은 부정 지시문이 아니라 감지할 주제를 서술해야 합니다.
 - Skill Trainer는 CLOVA Studio UI 기반 API 등록/학습/호출 환경이고, Function Calling은 애플리케이션에서 함수를 실행합니다.
 
-## 원문 반영 체크
-
-- 반영 페이지: 187~210p
-- 포함 내용: 챗봇 vs 스킬, 스킬 아키텍처, 튜닝 vs 스킬, 스킬 적용 결과 비교, 렌터카 의도 분류 예시, 스킬 트레이너 단계, 스킬셋/API Spec/Manifest, 데이터 수집/학습/버전 관리, 스킬 개발 단계, 라우터, 라우터 필터, Function Calling, Skill Trainer vs Function Calling, Lab 15~18, Summary

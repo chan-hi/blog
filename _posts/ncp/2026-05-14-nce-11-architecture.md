@@ -236,7 +236,3 @@ New Input Data → ML Algorithm → Prediction Result
 - **IoT 프로토콜**: MQTT (경량형), X.509 인증 + TLS
 - **CI/CD**: SourceCommit → SourceBuild → SourceDeploy (SourcePipeline으로 통합)
 
-## 원문 반영 체크
-
-- 반영 페이지: 343~375p
-- 포함 내용: 소프트웨어 아키텍처 패턴, Monolithic/SOA/MSA 진화, 3-Tier, 클라우드 설계 원칙, 마이그레이션 접근법, 아키텍처 발전 단계, 웹서비스/서버리스/음성인식/번역/CI-CD/IoT/ML 케이스 스터디

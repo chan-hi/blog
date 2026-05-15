@@ -34,7 +34,3 @@ description: "네이버 클라우드 플랫폼 AI 상품 목록 — CLOVA Voice,
 - `CLOVA Voice`와 `CLOVA Dubbing`은 모두 음성합성 계열이지만, Dubbing은 동영상에 AI 보이스를 입히는 기능입니다.
 - `AITEMS`는 추천, `Search Trend`는 검색어 통계, `CAPTCHA`는 어뷰징 방지입니다.
 
-## 원문 반영 체크
-
-- 반영 페이지: 29~30p
-- 포함 내용: 네이버 클라우드 AI 상품 목록 및 각 상품 설명

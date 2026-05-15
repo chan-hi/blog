@@ -169,7 +169,3 @@ Anti-DDoS (고객별 dedicate)
 - **KMS**: 전자 봉투 방식 (루트 키 → 마스터 키 → 데이터 키 → 데이터)
 - **Security Monitoring Basic**: IDS + Anti-Virus / **Managed**: + Anti-DDoS + WAF + IPS
 
-## 원문 반영 체크
-
-- 반영 페이지: 235~277p
-- 포함 내용: ACG/NACL 비교, IDS/IPS/WAF, Web Security Checker 취약점 전체, System Security Checker(Linux/Windows), WAS Security Checker(Apache/Tomcat/Nginx), Certificate Manager, Private CA, KMS, Security Monitoring, WebShell Behavior Detector, Cloud Security Watcher, AppSafer, FileSafer

@@ -175,7 +175,3 @@ description: "OSI 7계층, Transit VPC, Load Balancer(NLB/NPLB/ALB) 비교, NAT 
 - **VOD Multi DRM**: Widevine + FairPlay + PlayReady
 - **Image Optimizer**: Object Storage + GlobalEdge 연동
 
-## 원문 반영 체크
-
-- 반영 페이지: 125~162p
-- 포함 내용: OSI 7계층, CIDR, Transit VPC, LB 종류 비교, LB 알고리즘, NAT Gateway, DNS 레코드, IPsec VPN, GlobalEdge CDN, GTM/GSLB, Image Optimizer, VOD Station, LiveStation, Media Connect Center
