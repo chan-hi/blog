@@ -127,6 +127,35 @@ git push origin main
 | 2026-03-30 | ncp-dms-migration-guide | NCP, Migration |
 | 2026-03-30 | ncp-dms-troubleshooting-summary | NCP, Migration |
 
+### 실무 경험 시리즈 (2026-08-26)
+
+MSP 클라우드 엔지니어 실무 기록. **고객사명·계약 금액·식별 가능한 인프라 규모는 전부 제외**하고
+업종 수준으로만 표기한다. 신규 포스트 작성 시 이 기준을 유지할 것.
+
+| 날짜 | 파일 | 카테고리 |
+|------|------|---------|
+| 2026-08-26 | system/nat-gateway-nacl-ephemeral-port-mismatch | Troubleshooting, Network |
+| 2026-08-26 | iac/terraform-server-scaleout-lb-target-integration | IaC, Terraform |
+| 2026-08-26 | finops/rightsizing-min-max-avg-decomposition | FinOps, 비용최적화 |
+| 2026-08-26 | migration/dns-migration-700-records-verification | Migration, DNS |
+| 2026-08-26 | kubernetes/kubernetes-enablement-instead-of-building | Kubernetes, Enablement |
+| 2026-08-26 | migration/idc-to-cloud-db-cutover-decision-criteria | Migration, 아키텍처 |
+| 2026-08-26 | ncp/security-required-3tier-design | NCP, 아키텍처 |
+| 2026-08-26 | system/postgresql-cpu-90-vacuum-tuning | Troubleshooting, Database |
+| 2026-08-26 | system/incident-response-casebook-2026 | Troubleshooting, 운영 |
+
+### 공개 원칙 (실무 포스트)
+
+| 항목 | 처리 |
+|------|------|
+| 고객사명 | 업종으로만 표기 (금융권, 유통, 미디어, 공공 모빌리티, 제조 SaaS) |
+| 재직사명 | 표기하지 않음 |
+| 계약·수주 대가 금액 | 제외 (절감 성과액은 업종만 표기된 상태에서 허용) |
+| 공수·인력 산정 수치 | 구체값 제외, 방법론만 서술 |
+| 인프라 절대 규모 | 근사치로만 ("50여 대", "수 TB") |
+| IP·도메인·호스트명 | 마스킹 |
+| 확인되지 않은 원인 | 단정하지 않고 미확인으로 명시 |
+
 ---
 
 ## 남은 작업
