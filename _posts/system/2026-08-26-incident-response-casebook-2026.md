@@ -2,7 +2,7 @@
 title: "장애 대응 기록 모음 (2026) — 담당 구간을 배제하는 것도 대응이다"
 date: 2026-08-26 17:00:00 +0900
 categories: [Troubleshooting, 운영]
-tags: [장애대응, OOM, CDN, Cloudflare, 방화벽, 502, 트러블슈팅, 협업]
+tags: [장애대응, OOM, CDN, Cloudflare, 방화벽, "502", 트러블슈팅, 협업]
 description: "개별 글로 쓸 만큼 길지 않지만 남겨 둘 가치가 있는 장애 대응 건들. 특히 원인이 내 담당 구간 밖이었던 경우의 대응 방식."
 ---
 
